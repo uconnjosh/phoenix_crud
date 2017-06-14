@@ -1,6 +1,8 @@
 defmodule PhoenixCrud.Todo do
   use PhoenixCrud.Web, :model
 
+  @derive {Poison.Encoder, only: [:title, :description, :completed]}
+
   schema "todos" do
     field :title, :string
     field :description, :string
