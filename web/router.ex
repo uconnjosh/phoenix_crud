@@ -13,6 +13,12 @@ defmodule PhoenixCrud.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api", PhoenixCrud do
+    pipe_through :api
+
+    resources "/todos", TodoApiController
+  end
+
   scope "/", PhoenixCrud do
     pipe_through :browser # Use the default browser stack
 
